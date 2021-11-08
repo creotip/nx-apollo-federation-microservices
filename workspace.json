@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "express-svc": "apps/express-svc"
+  }
+}
