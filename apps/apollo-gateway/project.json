@@ -1,0 +1,52 @@
+{
+  "root": "apps/apollo-gateway",
+  "sourceRoot": "apps/apollo-gateway/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/apollo-gateway",
+        "main": "apps/apollo-gateway/src/main.ts",
+        "tsConfig": "apps/apollo-gateway/tsconfig.app.json",
+        "assets": ["apps/apollo-gateway/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/apollo-gateway/src/environments/environment.ts",
+              "with": "apps/apollo-gateway/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "apollo-gateway:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/apollo-gateway/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/apollo-gateway"],
+      "options": {
+        "jestConfig": "apps/apollo-gateway/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

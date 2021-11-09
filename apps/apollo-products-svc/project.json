@@ -1,0 +1,52 @@
+{
+  "root": "apps/apollo-products-svc",
+  "sourceRoot": "apps/apollo-products-svc/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/apollo-products-svc",
+        "main": "apps/apollo-products-svc/src/main.ts",
+        "tsConfig": "apps/apollo-products-svc/tsconfig.app.json",
+        "assets": ["apps/apollo-products-svc/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/apollo-products-svc/src/environments/environment.ts",
+              "with": "apps/apollo-products-svc/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "apollo-products-svc:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/apollo-products-svc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/apollo-products-svc"],
+      "options": {
+        "jestConfig": "apps/apollo-products-svc/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,6 +1,11 @@
 {
   "version": 2,
   "projects": {
-    "express-svc": "apps/express-svc"
+    "apollo-gateway": "apps/apollo-gateway",
+    "apollo-products-svc": "apps/apollo-products-svc",
+    "apollo-user-svc": "apps/apollo-user-svc",
+    "express-svc": "apps/express-svc",
+    "simple-react-app": "apps/simple-react-app",
+    "svc-types": "libs/svc-types"
   }
 }

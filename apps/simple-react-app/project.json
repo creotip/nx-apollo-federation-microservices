@@ -1,0 +1,72 @@
+{
+  "root": "apps/simple-react-app",
+  "sourceRoot": "apps/simple-react-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/simple-react-app",
+        "index": "apps/simple-react-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/simple-react-app/src/main.tsx",
+        "polyfills": "apps/simple-react-app/src/polyfills.ts",
+        "tsConfig": "apps/simple-react-app/tsconfig.app.json",
+        "assets": [
+          "apps/simple-react-app/src/favicon.ico",
+          "apps/simple-react-app/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/simple-react-app/src/environments/environment.ts",
+              "with": "apps/simple-react-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "simple-react-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "simple-react-app:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/simple-react-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/simple-react-app"],
+      "options": {
+        "jestConfig": "apps/simple-react-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
