@@ -9,7 +9,7 @@ export const UserTypeDefs = gql`
   type Query {
     users: [User]
   }
-`
+`;
 
 export const ProductsDefs = gql`
   type Product {
@@ -20,4 +20,4 @@ export const ProductsDefs = gql`
   type Query {
     products: [Product]
   }
-`
+`;

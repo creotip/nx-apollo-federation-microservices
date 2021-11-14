@@ -15,7 +15,6 @@ const users = [
   },
 ];
 
-
 const resolvers = {
   Query: {
     users: () => users,
@@ -42,13 +41,16 @@ async function startApolloServer(typeDefs, resolvers) {
     // By default, apollo-server hosts its GraphQL endpoint at the
     // server root. However, *other* Apollo Server packages host it at
     // /graphql. Optionally provide this to match apollo-server.
-    path: '/'
+    path: '/',
   });
 
   // Modified server startup
-  await new Promise<void>(resolve => httpServer.listen({ port: 4001 }, resolve));
-  console.log(`🚀 User Service ready at http://localhost:4001${server.graphqlPath}`);
+  await new Promise<void>((resolve) =>
+    httpServer.listen({ port: 4001 }, resolve)
+  );
+  console.log(
+    `🚀 User Service ready at http://localhost:4001${server.graphqlPath}`
+  );
 }
 
-
-startApolloServer(UserTypeDefs, resolvers)
+startApolloServer(UserTypeDefs, resolvers);

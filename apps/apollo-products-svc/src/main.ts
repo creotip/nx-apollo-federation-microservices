@@ -15,8 +15,6 @@ const products = [
   },
 ];
 
-
-
 const resolvers = {
   Query: {
     products: () => products,
@@ -43,13 +41,16 @@ async function startApolloServer(typeDefs, resolvers) {
     // By default, apollo-server hosts its GraphQL endpoint at the
     // server root. However, *other* Apollo Server packages host it at
     // /graphql. Optionally provide this to match apollo-server.
-    path: '/'
+    path: '/',
   });
 
   // Modified server startup
-  await new Promise<void>(resolve => httpServer.listen({ port: 4002 }, resolve));
-  console.log(`🚀 Products Service ready at http://localhost:4002${server.graphqlPath}`);
+  await new Promise<void>((resolve) =>
+    httpServer.listen({ port: 4002 }, resolve)
+  );
+  console.log(
+    `🚀 Products Service ready at http://localhost:4002${server.graphqlPath}`
+  );
 }
 
-
-startApolloServer(ProductsDefs, resolvers)
+startApolloServer(ProductsDefs, resolvers);

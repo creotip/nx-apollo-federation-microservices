@@ -4,8 +4,9 @@
     "apollo-gateway": "apps/apollo-gateway",
     "apollo-products-svc": "apps/apollo-products-svc",
     "apollo-user-svc": "apps/apollo-user-svc",
-    "express-svc": "apps/express-svc",
-    "simple-react-app": "apps/simple-react-app",
+    "header": "apps/header",
+    "plugin-manager": "apps/plugin-manager",
+    "sidebar": "apps/sidebar",
     "svc-types": "libs/svc-types"
   }
 }

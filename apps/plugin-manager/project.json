@@ -1,0 +1,73 @@
+{
+  "root": "apps/plugin-manager",
+  "sourceRoot": "apps/plugin-manager/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/plugin-manager",
+        "index": "apps/plugin-manager/src/index.html",
+        "baseHref": "/",
+        "main": "apps/plugin-manager/src/main.tsx",
+        "polyfills": "apps/plugin-manager/src/polyfills.ts",
+        "tsConfig": "apps/plugin-manager/tsconfig.app.json",
+        "assets": [
+          "apps/plugin-manager/src/favicon.ico",
+          "apps/plugin-manager/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "apps/plugin-manager/config/webpack/webpack.js"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/plugin-manager/src/environments/environment.ts",
+              "with": "apps/plugin-manager/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "plugin-manager:build",
+        "hmr": true,
+        "port": 4200
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "plugin-manager:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/plugin-manager/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/plugin-manager"],
+      "options": {
+        "jestConfig": "apps/plugin-manager/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
