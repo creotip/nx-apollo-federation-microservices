@@ -1,9 +1,9 @@
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const { dependencies } = require('../../../../package.json');
-const nrwlConfig = require('@nrwl/react/plugins/webpack.js');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const { dependencies } = require('../../../../package.json')
+const nrwlConfig = require('@nrwl/react/plugins/webpack.js')
 
 module.exports = (config, context) => {
-  nrwlConfig(config);
+  nrwlConfig(config)
   return {
     ...config,
     output: {
@@ -19,10 +19,9 @@ module.exports = (config, context) => {
       ...config.plugins,
       new ModuleFederationPlugin({
         name: 'plugin-manager',
-        filename: 'plugin-manager.js',
-        remotes: {
-          header: 'header@http://localhost:5001/remoteEntry.js',
-        },
+        // remotes: {
+        //   header: 'header@http://localhost:5001/remoteEntry.js',
+        // },
 
         shared: {
           ...dependencies,
@@ -34,5 +33,5 @@ module.exports = (config, context) => {
         },
       }),
     ],
-  };
-};
+  }
+}
