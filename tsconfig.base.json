@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@monorepo-microservices/redux-store": ["libs/redux-store/src/index.ts"],
       "@monorepo-microservices/svc-types": ["libs/svc-types/src/index.ts"]
     }
   },

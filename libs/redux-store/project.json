@@ -1,0 +1,23 @@
+{
+  "root": "libs/redux-store",
+  "sourceRoot": "libs/redux-store/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/redux-store/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/redux-store"],
+      "options": {
+        "jestConfig": "libs/redux-store/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

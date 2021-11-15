@@ -6,6 +6,7 @@
     "apollo-user-svc": "apps/apollo-user-svc",
     "header": "apps/header",
     "plugin-manager": "apps/plugin-manager",
+    "redux-store": "libs/redux-store",
     "sidebar": "apps/sidebar",
     "svc-types": "libs/svc-types"
   }

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import * as React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { reset, setProjectId } from '../redux/mainReducer'
+import { RootState, setProjectId } from '@monorepo-microservices/redux-store'
 
 function loadComponent(scope: any, module: any) {
   return async () => {
@@ -91,6 +91,7 @@ function System(props: any) {
 
 export function App() {
   const [system, setSystem] = React.useState<any>(undefined)
+  const projectId = useSelector((state: RootState) => state.projectId)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -105,8 +106,15 @@ export function App() {
   return (
     <ChakraProvider>
       <System system={system} />
-      <Flex as="main" p={3} justifyContent="center">
+      <Flex
+        as="main"
+        p={3}
+        justifyContent="center"
+        alignItems="center"
+        flexDir="column"
+      >
         <h1>Plugin Manager</h1>
+        <Box>Project ID: {projectId}</Box>
       </Flex>
     </ChakraProvider>
   )
