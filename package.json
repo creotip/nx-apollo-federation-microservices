@@ -8,7 +8,7 @@
     "start:user-svc": "nx run apollo-user-svc:serve",
     "start:products-svc": "nx run apollo-products-svc:serve",
     "start:all-client": "nx run-many --target=serve --projects=plugin-manager,header --parallel --maxParallel=50",
-    "start:all": "concurrently -k npm:start:products-svc npm:start:user-svc npm:start:apollo-gateway",
+    "start:all-server": "nx run-many --target=serve --projects=apollo-gateway,apollo-user-svc,apollo-products-svc --parallel --maxParallel=50",
     "build": "nx build",
     "test": "nx test"
   },
