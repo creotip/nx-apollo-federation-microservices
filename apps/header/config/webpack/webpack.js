@@ -1,10 +1,10 @@
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const { dependencies } = require('../../../../package.json');
-const nrwlConfig = require('@nrwl/react/plugins/webpack.js');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const { dependencies } = require('../../../../package.json')
+const nrwlConfig = require('@nrwl/react/plugins/webpack.js')
 
 module.exports = (config, context) => {
-  nrwlConfig(config);
-  config.context = process.cwd();
+  nrwlConfig(config)
+  config.context = process.cwd()
   return {
     ...config,
     output: {
@@ -34,5 +34,5 @@ module.exports = (config, context) => {
         },
       }),
     ],
-  };
-};
+  }
+}
