@@ -1,16 +1,9 @@
-import { Box, ChakraProvider, Flex } from '@chakra-ui/react';
-import styled from '@emotion/styled';
-import React from 'react';
-
-const StyledApp = styled.div`
-  font-family: sans-serif;
-  min-width: 300px;
-  max-width: 600px;
-  margin: 50px auto;
-`;
+import { Box, ChakraProvider, Flex } from '@chakra-ui/react'
+import styled from '@emotion/styled'
+import React from 'react'
 
 // @ts-ignore
-const RemoteHeader = React.lazy(() => import('header/Header'));
+const RemoteHeader = React.lazy(() => import('header/Header'))
 
 export function App() {
   return (
@@ -22,7 +15,7 @@ export function App() {
         <h1>Plugin Manager</h1>
       </Flex>
     </ChakraProvider>
-  );
+  )
 }
 
-export default App;
+export default App

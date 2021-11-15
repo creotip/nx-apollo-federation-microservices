@@ -1,5 +1,5 @@
 declare module 'header/Header' {
-  const Header: React.ComponentType;
+  const Header: typeof import('./entry')
 
-  export = Header;
+  export = Header
 }
